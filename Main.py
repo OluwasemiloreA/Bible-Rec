@@ -1,3 +1,6 @@
+import math
+import sys
+
 global bookcount
 bookcount = 66
 otbookcount = 39
@@ -31,7 +34,6 @@ def needtoread():
             
 
 def readcompletion():
-    #percentage has too many dp
     try:
         with open('ReadNT.txt','r') as readnt, open('ReadOT.txt','r') as readot, open('OTBooks.txt','r') as ot, open('NTBooks.txt','r') as nt:
             #ERROR try statement requires both to exsist
@@ -63,8 +65,9 @@ def readcompletion():
         print("You haven't recorded reading any.\n")
 
 def percent(a,b):
-    frac = a/b
-    percent = str(frac*100)+'%'
+    perc = (a/b)*100
+    perc = math.trunc(perc)
+    percent = str(perc)+'%'
     return percent
 
 def recordread():
@@ -116,16 +119,15 @@ def finishrec(readfile,linearray,recarray,record):
     readfile.write(recarray[record-1])
     print(f'You have recorded reading {selectbook}. Well done.\n')
 
-def endprog(flag):
+def endprog():
     print("Thank you for using Bible Rec! See you soon.")
-    flag = False
-    return
+    sys.exit()
 
 print('Welcome to Bible Rec! Record your journey through the bible.')
 flag = True
 while flag:
     print("Select the number corresponding to what you would like to do: \n" +
-                             "1) Record completing a chapter\n" +
+                             "1) Record completing a book\n" +
                              "2) Check bible completion rate\n" +
                              "3) Check which books you need to read\n" +
                              "4) Exit the program\n")
@@ -138,4 +140,4 @@ while flag:
     elif (str(choice) == '3'):
         needtoread()
     elif (str(choice) == '4'):
-        endprog(flag)
+        endprog()
