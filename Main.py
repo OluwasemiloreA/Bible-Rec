@@ -43,6 +43,31 @@ OLD_DICT = {
     39: "Malachi",
 }
 
+class books:
+    def __init__(self, booksize):
+        self.bookcount = booksize
+        self.booksread = 0
+        self.booksleft = self.bookcount
+    
+    def readbook(self):
+        self.booksleft = self.booksleft - 1
+        self.booksread = self.booksread + 1
+
+    def printcount(self):
+        print("There are", self.bookcount+"s in the bible.")
+    
+    def printread(self):
+        print("You have read", self.booksread+"s in the bible.")
+
+    def printleft(self):
+        print("You have", self.bookcount+"s left to read in the bible.")
+
+
+class otbooks(books):
+    def __init__(self):
+        super.boo
+        pass
+    
 global bookcount
 bookcount = 66
 otbookcount = 39
