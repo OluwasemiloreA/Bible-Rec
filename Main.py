@@ -1,7 +1,11 @@
 import math
 import sys
 
-OLD_DICT = {
+global bookcount
+bookcount = 66
+
+#Used in for loop to keep the full number of books
+BIBLE_DICT = {
     1: "Genesis",
     2: "Exodus",
     3: "Leviticus",
@@ -41,17 +45,50 @@ OLD_DICT = {
     37: "Haggai",
     38: "Zechariah",
     39: "Malachi",
+    40: "Matthew",
+    41: "Mark",
+    42: "Luke",
+    43: "John",
+    44: "Acts",
+    45: "Romans",
+    46: "1st Corinthians",
+    47: "2nd Corinthians",
+    48: "Galatians",
+    49: "Ephesians",
+    50: "Philippians",
+    51: "Colossians",
+    52: "1st Thessalonians",
+    53: "2nd Thessalonians",
+    54: "1st Timothy",
+    55: "2nd Timothy",
+    56: "Titus",
+    57: "Philemon",
+    58: "Hebrews",
+    59: "James",
+    60: "1st Peter",
+    61: "2nd Peter",
+    62: "1st John",
+    63: "2nd John",
+    64: "3rd John",
+    65: "Jude",
+    66: "Revelation",
 }
 
+#Consider need for both array and dictionary
+book_array = ["","Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1st Samuel","2nd Samuel","1st Kings","2nd Kings","1st Chronicles","2nd Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1st Corinthians","2nd Corinthians","Galatians","Ephesians","Philippians","Colossians","1st Thessalonians","2nd Thessalonians","1st Timothy","2nd Timothy","Titus","Philemon","Hebrews","James","1st Peter","2nd Peter","1st John","2nd John","3rd John","Jude","Revelation",]
+book_array = [ "" ] + list(BIBLE_DICT.values())
+read_array = []
+
 class books:
-    def __init__(self, booksize):
-        self.bookcount = booksize
+    def __init__(self, size):
+        self.bookcount = size
         self.booksread = 0
         self.booksleft = self.bookcount
     
     def readbook(self):
         self.booksleft = self.booksleft - 1
         self.booksread = self.booksread + 1
+        self.printread()
 
     def printcount(self):
         print("There are", self.bookcount+"s in the bible.")
@@ -62,16 +99,13 @@ class books:
     def printleft(self):
         print("You have", self.bookcount+"s left to read in the bible.")
 
+Bible = books(66)
 
-class otbooks(books):
-    def __init__(self):
-        super.boo
-        pass
+def haveread(input):
+    book = book_array[input]
+    Bible.readbook()
+    with open("readBooks",'r')
     
-global bookcount
-bookcount = 66
-otbookcount = 39
-ntbookcount = 27
 
 def needtoread():
     #Doesnt work. Supposed to remove read chapters
